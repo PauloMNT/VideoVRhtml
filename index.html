@@ -4,22 +4,24 @@
     <head>
         <meta charset="UTF-8">
         <title>VideoVR en Ios</title>
-        <meta name="viewport" content="width-device-width, initial-scale=1">
         <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-        <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v6.1.2/dist/aframe-extras.min.js"></script>
     </head>
 
     <body>
         <a-scene>
+            <!--Assets-->
             <a-assets>
-                <video src="Video/VideoVR.mp4" type="video/mp4" webkit-playsinline autoplay loop></video>
+                <img id="play" src="play.png">
+                <img id="pausa" src="pausa.png">
+                <video id="video360" src="Video/VideoVR.mp4" autoplay></video>
             </a-assets>
-            <a-videosphere src="#Video/VideoVR.mp4" rotation="0 -90 0">
-                <a-entity aframe- video-controls position="0 -1 -1" scale="0.5 0.5 0.5"></a-entity>
-            </a-videosphere>
-            <a-caera>
+            <!--Camara-->
+            <a-camera>
                 <a-cursor></a-cursor>
-            </a-caera>
+             </a-camera>
+
+            <!--360 video-->
+             <a-videosphere src="#video360"></a-videosphere>
         </a-scene>
     </body> 
 
