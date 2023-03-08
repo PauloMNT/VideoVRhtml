@@ -4,22 +4,17 @@
     <head>
         <meta charset="UTF-8">
         <title>VideoVR en Ios</title>
-        <script src="pannellum.js"></script>
-        <script>
-            panellum.viewer('panorama',{
-                type: 'video',
-                video: {
-                    URL: 'Video/VideoVR.mp4',
-                    autoplay: true,
-                    muted: true
-                }
-            });
-        </script>
+        <meta name="viewport" content="width-device-width, initial-scale=1">
+        <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     </head>
 
     <body>
-        <video src="Video/VideoVR.mp4" autoplay controls></video>
-        <div id="panorama"></div>
+        <a-scene>
+            <a-assets>
+                <video src="Video/VideoVR.mp4" crossorigin="anonymous" webkit-playsinline loop="true" src="Video/VideoVR.mp4"></video>
+            </a-assets>
+            <a-videosphere src="Video/VideoVR.mp4" rotation="0 -90 0"></a-videosphere>
+        </a-scene>
     </body> 
 
 </html>
