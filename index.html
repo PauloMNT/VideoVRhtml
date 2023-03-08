@@ -12,71 +12,7 @@
             <source src="Video/VideoVR.webm" type="video/webm">
             <source src="Video/VideoVR.ogg" type="video/ogg">
         </video>
-
-        <script src="java.js"></script>
-        <script>
-
-            AFRAME.registerComponent('ios-playsinline', {
-                    init: function() {
-                    var video = document.getElementById('video-vr');
-                    video.setAttribute('webkit-playsinline', '');
-                    }
-                });
-                var isiOS = /(iPad|iPhone|iPod)/g.test(navigator.userAgent);
-                if (isiOS) {
-                    var videoEl = document.getElementById('video-vr');
-                    videoEl.setAttribute('ios-playsinline', '');
-                    videoEl.setAttribute('webkit-playsinline', '');
-                }
-
-            var renderer, scene, camera, videoTexture, video, sphere;
-            var fov = 75, aspect = window.innerWidth / window.innerHeight, near = 0.1, far = 1000;
-            var alpha = 0, beta = 0, gamma = 0;
-
-            init();
-            animate();
-
-            function init() {
-                renderer = new THREE.WebGLRenderer();
-                renderer.setSize(window.innerWidth, window.innerHeight);
-                document.body.appendChild(renderer.domElement);
-
-                scene = new THREE.Scene();
-
-                camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-                camera.position.set(0, 0, 0);
-                scene.add(camera);
-
-                /*var videoEl = document.getElementById('video-vr');
-                videoEl.setAttribute('ios-playsinline', '');
-                videoEl.setAttribute('webkit-playsinline', '');*/
-
-                video = document.createElement('video');
-                video.src = videoEl.src;
-                video.load();
-                video.play();
-
-                videoTexture = new THREE.VideoTexture(video);
-                videoTexture.minFilter = THREE.LinearFilter;
-                videoTexture.magFilter = THREE.LinearFilter;
-                videoTexture.format = THREE.RGBFormat;
-
-                var sphereGeometry = new THREE.SphereGeometry(5, 32, 32);
-                var sphereMaterial = new THREE.MeshBasicMaterial({ map: videoTexture, side: THREE.DoubleSide });
-
-                sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
-                sphere.rotation.y = -Math.PI / 2;
-                scene.add(sphere);
-
-                window.addEventListener('deviceorientation', handleOrientation);
-            }
-
-            function animate() {
-                requestAnimationFrame(animate);
-                renderer.render(scene, camera);
-            }
-        </script>
-
+        
     </body>
 
 </html>
