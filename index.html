@@ -4,15 +4,14 @@
     <head>
         <meta charset="UTF-8">
         <title>VideoVR en Ios</title>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     </head>
 
     <body>
-        <video id="video" controls>
-            <source src="Video/VideoVR.mp4" type="video/mp4">
-            <source src="Video/VideoVR.webm" type="video/webm">
-            <source src="Video/VideoVR.ogg" type="video/ogg">
-        </video>
-        
+        <a-scene>
+            <a-videosphere src="Video/VideoVR.mp4"></a-videosphere>
+        </a-scene>
     </body>
 
 </html>
