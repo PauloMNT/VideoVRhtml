@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <meta charset="UTF-8">
-        <title>VideoVR en Ios</title>
-        <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <title>VideoVR en Ios</title>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script>
+        AFRAME.registerComponent('videovr', {
+        });
+    </script>
+</head>
 
-    <body>
-        <a-scene>
-            <!--Assets-->
-            <a-assets>
-                <img id="play" src="play.png">
-                <img id="pausa" src="pausa.png">
-                <video id="video360" src="Video/VideoVR.mp4" autoplay></video>
-            </a-assets>
-            <!--Camara-->
-            <a-camera>
-                <a-cursor></a-cursor>
-            </a-camera>
+<body>
+    <a-scene>
+        <!--Assets-->
+        <a-assets>
+            <img id="play" src="play.png">
+            <img id="pausa" src="pausa.png">
+            <video id="video360" src="Video/VideoVR.mp4" autoplay></video>
+        </a-assets>
+        <!--Camara-->
+        <a-camera>
+            <a-cursor></a-cursor>
+        </a-camera>
 
-            <!--360 video-->
-             <a-videosphere src="#video360"></a-videosphere>
-        </a-scene>
-    </body> 
+        <!--360 video-->
+        <a-videosphere src="#video360"></a-videosphere>
+    </a-scene>
+</body>
 
 </html>
