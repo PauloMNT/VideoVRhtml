@@ -6,13 +6,8 @@
     <title>VideoVR en Ios</title>
     <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
     <script>
-        AFRAME.registerComponent('log', {
-            schema: { type: 'string' },
+        AFRAME.registerComponent('video', {
 
-            init: function () {
-                var stringToLog = this.data;
-                console.log(stringToLog);
-            }
         });
     </script>
 </head>
@@ -21,19 +16,14 @@
     <a-scene>
         <!--Assets-->
         <a-assets>
-            <img id="play" src="play.png">
-            <img id="pausa" src="pausa.png">
-            <video id="video360">
-                <source src="Video/VideoVR.mp4" type="video/mp4">
-            </video>
+            <video id="video" src="Video/VideoVR.mp4" crossorigin="anonymous" loop video></video>
         </a-assets>
         <!--Camara-->
         <a-camera>
             <a-cursor></a-cursor>
         </a-camera>
-
         <!--360 video-->
-        <a-videosphere src="#video360" videovr></a-videosphere>
+        <a-videosphere src="#video" video></a-videosphere>
     </a-scene>
 </body>
 
